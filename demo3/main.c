@@ -1,12 +1,6 @@
 
 #include <stdio.h>
-
-
-extern int myadd(int num1, int num2);
-extern int mysub(int num1, int num2);
-extern int mymul(int num1, int num2);
-extern int mydiv(int num1, int num2);
-
+#include "add.h"
 
 int main()
 {
