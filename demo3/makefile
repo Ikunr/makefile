@@ -5,30 +5,30 @@ TARGET=main
 #使用$(TARGET) 必须要加 '$' 符号
 
 $(TARGET):$(OBJ)
-	gcc $^ -o $@
+	$(CC) $^ -o $@
 
 add.o:add.c
-	gcc -c $^ -o $@
+	$(CC) -c $^ -o $@
 
 sub.o:sub.c
-	gcc -c $^ -o $@
+	$(CC) -c $^ -o $@
 
 div.o:div.c
-	gcc -c $^ -o $@
+	$(CC) -c $^ -o $@
 
 mul.o:mul.c
-	gcc -c $^ -o $@
+	$(CC) -c $^ -o $@
 
 main.o:main.c
-	gcc -c $^ -o $@
+	$(CC) -c $^ -o $@
 
 clean:
 #@ 表示不显示输出
-	@rm -rf *.o $(TARGET)
+	@$(RM) -rf *.o $(TARGET)
 
 show:
-	echo $(CC)
-	echo $(RM)
+	@echo $(CC)
+	@echo $(RM)
 	
 
 
