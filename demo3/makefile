@@ -1,5 +1,5 @@
 # 自定义变量
-OBJ=main.o add.o sub.o div.o mul.o
+OBJ=$(patsubst %.c, %.o, $(wildcard ./*.c))
 TARGET=main
 
 #使用$(TARGET) 必须要加 '$' 符号
@@ -14,7 +14,7 @@ $(TARGET):$(OBJ)
 
 clean:
 #@ 表示不显示输出
-	@$(RM) -rf *.o $(TARGET)
+	@$(RM) *.o $(TARGET)
 
 show:
 	@echo $(CC)
