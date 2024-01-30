@@ -1,6 +1,10 @@
 
 #include <stdio.h>
 #include "add.h"
+#include "div.h"
+#include "mul.h"
+
+
 
 int main()
 {

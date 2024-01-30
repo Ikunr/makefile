@@ -2,16 +2,26 @@
 OBJ=$(patsubst %.c, %.o, $(wildcard ./*.c))
 TARGET=main
 
+# 指定文件路径 -L 搜索动态库的指定路径  
+LDFLAGS=-L./src_so
+LIBS=-lSoMyAdd
+
 #使用$(TARGET) 必须要加 '$' 符号
-# ^表示所有不充分的依赖 
-$(TARGET):$(OBJ)
-	$(CC) $^ -o $@
+# ^表示所有不重复的依赖项 
+$(TARGET): $(OBJ)
+#发布
+
+	$(CC)  $^ $(LIBS) $(LDFLAGS) -o $@
 
 # 模式匹配  %目标 : % 依赖
 %.o:%.c
 	$(CC) -c $^ -o $@
 
 
+# 伪目标
+.PHONY: clean
+
+# 清除编译的依赖文件 和 二进制文件 
 clean:
 #@ 表示不显示输出
 	@$(RM) *.o $(TARGET)
