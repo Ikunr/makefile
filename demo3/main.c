@@ -14,5 +14,6 @@ int main()
 
     int data = myadd(num1, num2);
 
+    data = mydiv(num1, num2);
     printf("data: %d\n", data);
 }

@@ -3,15 +3,16 @@ OBJ=$(patsubst %.c, %.o, $(wildcard ./*.c))
 TARGET=main
 
 # 指定文件路径 -L 搜索动态库的指定路径  
-LDFLAGS=-L./src_so
-LIBS=-lSoMyAdd
+# 将静态库  和动态库一起链接
+LDFLAGS=-L./src_so -L./src_a
+LIBS=-lSoMyAdd -lMyDiv
 
 #使用$(TARGET) 必须要加 '$' 符号
 # ^表示所有不重复的依赖项 
 $(TARGET): $(OBJ)
 #发布
 
-	$(CC)  $^ $(LIBS) $(LDFLAGS) -o $@
+	$(CC)  $^ $(LDFLAGS) $(LIBS) -o $@
 
 # 模式匹配  %目标 : % 依赖
 %.o:%.c
